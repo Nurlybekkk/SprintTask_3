@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Website for checking currency exchange rates</title>
+    <style>
+        .main-box{
+            border: 2px gray solid;
+            border-radius: 10px;
+            padding-top: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 20px;
+            text-align: center;
+        }
+        .currencies{
+            width: 92%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .money-box{
+            display: flex;
+            width: 100%;
+        }
+        .res-box{
+            display: flex;
+            justify-content: space-between;
+            width: 70%;
+            margin-left: 70px;
+            margin-top: 5px;
+        }
+        .sum-curr input{
+            border: 1px black solid;
+            border-radius: 0px;
+            padding: 5px 7px;
+        }
+        .sum-curr select{
+            border: 1px black solid;
+            border-radius: 0px;
+            padding: 5px 7px;
+            margin-left: 10px;
+        }
+        #tenge, #dollar, #euro{
+            border: 0px solid;
+            padding: 7px;
+            height: 15px;
+            margin-top: -5px;
+            background-color: gainsboro;
+            width: 170px;
+        }
+        button{
+            padding: 10px 20px;
+            background-color: dimgray;
+            font-weight: bold;
+            color: aliceblue;
+            border: 0px;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-box">
+        <div class="currencies">
+            <h4>Введите сумму:</h4>
+            <h4>KZT (tenge)</h4>
+            <h4>USD (dollar)</h4>
+            <h4>EUR (euro)</h4>
+        </div>
+        <div class="money-box">
+            <div class="sum-curr">
+                <input id="sum">
+                <select id="option">
+                    <option>KZT</option>
+                    <option>USD</option>
+                    <option>EUR</option>
+                </select>
+            </div>
+            <div class="res-box">
+                <h4 id="tenge"></h4>
+                <h4 id="dollar"></h4>
+                <h4 id="euro"></h4>
+            </div>
+        </div>
+        <button id="btn">Calculate</button>
+        <script>
+            function change(event){
+                if(option.value=='KZT'){
+                    tenge.innerHTML = "-";
+                    dollar.innerHTML = Math.round(sum.value / 431);
+                    euro.innerHTML = Math.round(sum.value / 509);
+                } else if(option.value=='USD'){
+                    tenge.innerHTML = Math.round(sum.value * 429);
+                    dollar.innerHTML = "-"
+                    euro.innerHTML = Math.round(sum.value * 0.84283);
+                } else if(option.value=='EUR'){
+                    tenge.innerHTML = Math.round(sum.value * 507);
+                    dollar.innerHTML = Math.round(sum.value * 1.176)
+                    euro.innerHTML = "-";
+                }
+            }
+            tenge.value == "dawd"
+            btn.addEventListener('click', change);
+        </script>
+    </div>
+</body>
+</html>
